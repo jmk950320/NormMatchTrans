@@ -6,7 +6,7 @@ import numpy as np
 
 
 def locations_to_features_diffs(x_1, y_1, x_2, y_2):
-    res = np.array([0.5 + 0.5 * (x_1 - x_2) / 256.0, 0.5 + 0.5 * (y_1 - y_2) / 256.0])
+    res = np.array([0.5 + 0.5 * (x_1 - x_2) / 384.0, 0.5 + 0.5 * (y_1 - y_2) / 384.0]) #change the normalization value according to your image size value
     return res
 
 
