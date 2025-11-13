@@ -1,0 +1,8 @@
+# 베이스 이미지
+FROM pytorch/pytorch:2.9.1-cuda12.6-cudnn9-runtime
+
+
+
+
+# 컨테이너 실행 시 기본 쉘
+CMD ["/bin/bash"]
