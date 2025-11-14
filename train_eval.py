@@ -4,8 +4,7 @@ import random
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
-# import wandb
-
+import tqdm
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 
@@ -182,7 +181,7 @@ def train_eval_model(model, criterion, optimizer, dataloader, max_norm, num_epoc
         epoch_correct = 0
         epoch_total_valid = 0
         
-        for inputs in dataloader["train"]:
+        for inputs in tqdm.tqdm(dataloader["train"]):
             # all_classes = [_ for _ in inputs["cls"]]
             # print(all_classes)
             data_list = [_.cuda() for _ in inputs["images"]]
