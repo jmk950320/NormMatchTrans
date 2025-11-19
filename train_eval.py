@@ -155,7 +155,10 @@ def train_eval_model(model, criterion, optimizer, dataloader, max_norm, num_epoc
     
     iter_num = 0
     
-    for epoch in range(start_epoch, num_epochs):
+
+  
+
+    for epoch in tqdm.tqdm(range(start_epoch, num_epochs),desc="Epochs"):
         if local_rank == output_rank:
             print("Epoch {}/{}".format(epoch, num_epochs - 1))
             print("-" * 10)
@@ -180,8 +183,10 @@ def train_eval_model(model, criterion, optimizer, dataloader, max_norm, num_epoc
         
         epoch_correct = 0
         epoch_total_valid = 0
-        
-        for inputs in tqdm.tqdm(dataloader["train"]):
+      
+        for inputs in tqdm.tqdm(dataloader["train"], desc="Batches"):
+
+            
             # all_classes = [_ for _ in inputs["cls"]]
             # print(all_classes)
             data_list = [_.cuda() for _ in inputs["images"]]
@@ -288,9 +293,12 @@ def train_eval_model(model, criterion, optimizer, dataloader, max_norm, num_epoc
                 # tp += _tp
                 # fp += _fp
                 # fn += _fn
-                
-                
-                
+
+           
+            
+              
+        
+
                 
                 
             bs = perm_mat_list[0].size(0)
