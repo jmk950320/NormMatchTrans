@@ -50,8 +50,10 @@ python -m torch.distributed.run --nproc_per_node=1 train_eval.py ./experiments/v
 3. conda install -c conda-forge imagecodecs
 4. apt-get install gcc
 5. apt-get install pkg-config
+   pip install -r environment.txt
+   apt-get update
 6. apt-get install -y libcairo2-dev pkg-config python3-dev
     apt-get install build-essential python3-dev
-7. pip install -r environment.txt
+7. 
 8. pip install torch_geometric
-9. pip install torch-spline-conv
+9. pip install torch-spline-conv -f https://data.pyg.org/whl/torch-2.4.1+cu121.html
